@@ -4,6 +4,7 @@ import tornado
 
 
 from handlers.health_checks import health_check_handlers
+from handlers.decode_handlers import decode_handlers
 
 
 PORT = os.environ.get("PORT", 8080)
@@ -11,7 +12,7 @@ PORT = os.environ.get("PORT", 8080)
 
 def make_app():
     return tornado.web.Application(
-        health_check_handlers,
+        health_check_handlers + decode_handlers,
     )
 
 
